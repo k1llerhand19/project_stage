@@ -58,25 +58,19 @@ class RefroidisseurController extends AbstractController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #[Route('ventiradaio/{id}', name: 'ventiradaio.edit')]
-    public function ModifierVentiradAIO(RefroidisseurRepository $refroidisseurrepo, Request $request, EntityManagerInterface $manager, $id): Response
+    public function ModifierVentiradAIO(Refroidisseur $refroidisseur, Request $request, EntityManagerInterface $manager): Response
     {
-        $Refroidisseur = $refroidisseurrepo->find($id);
-
-        if (!$Refroidisseur) {
-            throw $this->createNotFoundException('Données introuvables pour l\'ID '.$id);
-        }
-
-        $formrefroidisseur = $this->createForm(RefroidisseurFormType::class, $Refroidisseur);
+        $formrefroidisseur = $this->createForm(RefroidisseurFormType::class, $refroidisseur);
         $formrefroidisseur->handleRequest($request);
 
         if ($formrefroidisseur->isSubmitted() && $formrefroidisseur->isValid()) {
+            $manager->persist($refroidisseur);
             $manager->flush();
 
             // Rediriger vers une page de confirmation ou une autre action
             return $this->redirectToRoute('ventiradaio.show');
         }
         return $this->render('refroidisseur/modifierrefroidisseur.html.twig', [
-            ['id' => $id],
             'formrefroidisseur' => $formrefroidisseur->createView(),
         ]);
     }

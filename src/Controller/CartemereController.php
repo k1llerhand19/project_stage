@@ -60,18 +60,14 @@ class CartemereController extends AbstractController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #[Route('cartemere/{id}', name: 'cartemere.edit')]
-    public function ModifierBoitier(CartemereRepository $cmrepo, Request $request, EntityManagerInterface $manager, $id): Response
+    public function ModifierBoitier(Cartemere $cartemere, Request $request, EntityManagerInterface $manager): Response
     {
-        $cm = $cmrepo->find($id);
 
-        if (!$cm) {
-            throw $this->createNotFoundException('Données introuvables pour l\'ID '.$id);
-        }
-
-        $formcm = $this->createForm(CartemereFormType::class, $cm);
+        $formcm = $this->createForm(CartemereFormType::class, $cartemere);
         $formcm->handleRequest($request);
 
         if ($formcm->isSubmitted() && $formcm->isValid()) {
+            $manager->persist($cartemere);
             $manager->flush();
 
             // Rediriger vers une page de confirmation ou une autre action
@@ -79,7 +75,6 @@ class CartemereController extends AbstractController
         }
 
         return $this->render('cartemere/Modifiercm.html.twig', [
-            ['id' => $id],
             'formcm' => $formcm->createView(),
         ]);
     }

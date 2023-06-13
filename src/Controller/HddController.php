@@ -58,25 +58,20 @@ class HddController extends AbstractController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #[Route('hdd/{id}', name: 'hdd.edit')]
-    public function ModifierHDD(HddRepository $hddrepo, Request $request, EntityManagerInterface $manager, $id): Response
+    public function ModifierHDD(Hdd $hdd, Request $request, EntityManagerInterface $manager): Response
     {
-        $hdd = $hddrepo->find($id);
-
-        if (!$hdd) {
-            throw $this->createNotFoundException('Données introuvables pour l\'ID '.$id);
-        }
 
         $formhdd = $this->createForm(HddFormType::class, $hdd);
         $formhdd->handleRequest($request);
 
         if ($formhdd->isSubmitted() && $formhdd->isValid()) {
+            $manager->persist($hdd);
             $manager->flush();
 
             // Rediriger vers une page de confirmation ou une autre action
             return $this->redirectToRoute('hdd.show');
         }
         return $this->render('hdd/modifierhdd.html.twig', [
-            ['id' => $id],
             'formhdd' => $formhdd->createView(),
         ]);
     }

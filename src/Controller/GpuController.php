@@ -59,25 +59,20 @@ class GpuController extends AbstractController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #[Route('gpu/{id}', name: 'gpu.edit')]
-    public function ModifierGPU(GpuRepository $gpurepo, Request $request, EntityManagerInterface $manager, $id): Response
+    public function ModifierGPU(Gpu $gpu, Request $request, EntityManagerInterface $manager): Response
     {
-        $gpu = $gpurepo->find($id);
-
-        if (!$gpu) {
-            throw $this->createNotFoundException('Données introuvables pour l\'ID '.$id);
-        }
 
         $formgpu = $this->createForm(GpuFormType::class, $gpu);
         $formgpu->handleRequest($request);
 
         if ($formgpu->isSubmitted() && $formgpu->isValid()) {
+            $manager->persist($gpu);
             $manager->flush();
 
             // Rediriger vers une page de confirmation ou une autre action
             return $this->redirectToRoute('gpu.show');
         }
         return $this->render('gpu/modifiergpu.html.twig', [
-            ['id' => $id],
             'formgpu' => $formgpu->createView(),
         ]);
     }

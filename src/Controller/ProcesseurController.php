@@ -58,18 +58,13 @@ class ProcesseurController extends AbstractController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #[Route('processeur/{id}', name: 'processeur.edit')]
-    public function ModifierProce(CpuRepository $cpurepo, Request $request, EntityManagerInterface $manager, $id): Response
+    public function ModifierProce(Cpu $cpu, Request $request, EntityManagerInterface $manager): Response
     {
-        $cpu = $cpurepo->find($id);
-
-        if (!$cpu) {
-            throw $this->createNotFoundException('Données introuvables pour l\'ID '.$id);
-        }
-
         $formcpu = $this->createForm(CpuFormType::class, $cpu);
         $formcpu->handleRequest($request);
 
         if ($formcpu->isSubmitted() && $formcpu->isValid()) {
+            $manager->persist($cpu);
             $manager->flush();
 
             // Rediriger vers une page de confirmation ou une autre action
@@ -77,7 +72,6 @@ class ProcesseurController extends AbstractController
         }
        
         return $this->render('Processeur/modifierprocesseur.html.twig', [
-            ['id' => $id],
             'formcpu' => $formcpu->createView(),
         ]);
     }

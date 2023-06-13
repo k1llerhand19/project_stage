@@ -58,18 +58,13 @@ class RamController extends AbstractController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #[Route('ram/{id}', name: 'ram.edit')]
-    public function ModifierRam(RamRepository $ramrepo, Request $request, EntityManagerInterface $manager, $id): Response
+    public function ModifierRam(Ram $ram, Request $request, EntityManagerInterface $manager): Response
     {
-        $ram = $ramrepo->find($id);
-
-        if (!$ram) {
-            throw $this->createNotFoundException('Données introuvables pour l\'ID '.$id);
-        }
-
         $formram = $this->createForm(RamFormType::class, $ram);
         $formram->handleRequest($request);
 
         if ($formram->isSubmitted() && $formram->isValid()) {
+            $manager->persist($ram);
             $manager->flush();
 
             // Rediriger vers une page de confirmation ou une autre action
@@ -77,7 +72,6 @@ class RamController extends AbstractController
         }
 
         return $this->render('Ram/modifierram.html.twig', [
-            ['id' => $id],
             'formram' => $formram->createView(),
         ]);
     }

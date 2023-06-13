@@ -60,18 +60,13 @@ class BoitierController extends AbstractController
 
 
     #[Route('boitier/{id}', name: 'boitier.edit')]
-    public function ModifierBoitier(BoitierRepository $boitierrepo, Request $request, EntityManagerInterface $manager, $id): Response
+    public function ModifierBoitier(Boitier $boitier, Request $request, EntityManagerInterface $manager ): Response
     {
-        $boitier = $boitierrepo->find($id);
-
-        if (!$boitier) {
-            throw $this->createNotFoundException('Données introuvables pour l\'ID '.$id);
-        }
-
         $formboitier = $this->createForm(BoitierFormType::class, $boitier);
         $formboitier->handleRequest($request);
 
         if ($formboitier->isSubmitted() && $formboitier->isValid()) {
+            $manager->persist($boitier);
             $manager->flush();
 
             // Rediriger vers une page de confirmation ou une autre action
@@ -79,8 +74,7 @@ class BoitierController extends AbstractController
         }
 
         return $this->render('boitier/modifierboitier.html.twig', [
-            ['id' => $id],
-            'formboitier' => $formboitier->createView(),
+           'formboitier' => $formboitier->createView(),
         ]);
     }
 }

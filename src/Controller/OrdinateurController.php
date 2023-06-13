@@ -25,7 +25,7 @@ class OrdinateurController extends AbstractController
     public function index(ManagerRegistry $registry): Response
     {        
         $ordi = $registry->getManager()->getRepository(Ordinateur::class)->createQueryBuilder('o')
-            ->select('o.nom, o.marque, o.modele, a.nom as alim_nom', 'b.nom as boitier_nom', 'c.nom as cartemere_nom', 'cp.nom as cpu_nom', 'g.nom as gpu_nom', 'h.nom as hdd_nom', 'ra.nom as ram_nom', 're.nom as refroidisseur_nom', 's.nom as ssd_nom')
+            ->select('o.id, o.nom, o.marque, o.modele, a.nom as alim_nom, b.nom as boitier_nom, c.nom as cartemere_nom, cp.nom as cpu_nom, g.nom as gpu_nom, h.nom as hdd_nom, ra.nom as ram_nom, re.nom as refroidisseur_nom, s.nom as ssd_nom')
             ->join('o.alim', 'a')
             ->join('o.boitier', 'b')
             ->join('o.cartemere', 'c')

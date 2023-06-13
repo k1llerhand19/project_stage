@@ -64,18 +64,13 @@ class AlimController extends AbstractController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #[Route('alim/{id}', name: 'alim.edit')]
-    public function ModifierAlim(AlimentationRepository $alimrepo, Request $request, EntityManagerInterface $manager, $id): Response
+    public function ModifierAlim(Alimentation $alimentation, Request $request, EntityManagerInterface $manager): Response
     {          
-        $alim = $alimrepo->find($id);
-        
-        if (!$alim) {
-            throw $this->createNotFoundException('Données introuvables pour l\'ID '.$id);
-        }
-
-        $formalim = $this->createForm(AlimentationFormType::class, $alim);
+        $formalim = $this->createForm(AlimentationFormType::class, $alimentation);
         $formalim->handleRequest($request);
 
         if ($formalim->isSubmitted() && $formalim->isValid()) {
+            $manager->persist($alimentation);
             $manager->flush();
 
             // Rediriger vers une page de confirmation ou une autre action
@@ -83,7 +78,6 @@ class AlimController extends AbstractController
         }
 
         return $this->render('alim/modifieralim.html.twig', [
-            ['id' => $id],
             'formalim' => $formalim->createView(),
         ]);
     }

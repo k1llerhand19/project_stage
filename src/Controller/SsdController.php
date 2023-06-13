@@ -55,25 +55,19 @@ class SsdController extends AbstractController
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     #[Route('ssd/{id}', name: 'ssd.edit')]
-    public function ModifierSSD(SsdRepository $ssdrepo, Request $request, EntityManagerInterface $manager, $id): Response
+    public function ModifierSSD(Ssd $ssd, Request $request, EntityManagerInterface $manager): Response
     {
-        $ssd = $ssdrepo->find($id);
-
-        if (!$ssd) {
-            throw $this->createNotFoundException('Données introuvables pour l\'ID '.$id);
-        }
-
         $formssd = $this->createForm(SsdFormType::class, $ssd);
         $formssd->handleRequest($request);
 
         if ($formssd->isSubmitted() && $formssd->isValid()) {
+            $manager->persist($ssd);
             $manager->flush();
 
             // Rediriger vers une page de confirmation ou une autre action
             return $this->redirectToRoute('ssd.show');
         }
         return $this->render('ssd/modifierssd.html.twig', [
-            ['id' => $id],
             'formssd' => $formssd->createView(),
         ]);
     }
