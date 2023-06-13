@@ -36,7 +36,6 @@ class OrdinateurController extends AbstractController
             ->getResult();
 
         return $this->render('ordinateur/index.html.twig', [
-            'controller_name' => 'OrdinateurController',
             'showordi' => $ordi
         ]);
     }
@@ -60,7 +59,6 @@ class OrdinateurController extends AbstractController
         }
 
         return $this->render('ordinateur/ajouterordinateur.html.twig', [
-            'controller_name' => 'OrdinateurController',
             'form_ordinateur'=> $form_ordinateur->createView()
 
         ]);
@@ -73,7 +71,6 @@ class OrdinateurController extends AbstractController
     public function ModifierOrdinateur(): Response
     {
         return $this->render('ordinateur/modifierordinateur.html.twig', [
-            'controller_name' => 'OrdinateurController',
         ]);
     }
 }

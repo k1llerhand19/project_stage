@@ -21,7 +21,6 @@ class RefroidisseurController extends AbstractController
         $showrefroidisseur = $refroidisseurrepo->findBy([],['id' => 'DESC']);
 
         return $this->render('refroidisseur/index.html.twig', [
-            'controller_name' => 'RefroidisseurController',
             'showrefroidisseur'=>$showrefroidisseur
         ]);
     }
@@ -43,7 +42,6 @@ class RefroidisseurController extends AbstractController
             return $this->redirectToRoute('ssd.show',['id'=>$Refroidisseur->getId()]);
         }
         return $this->render('refroidisseur/ajouterrefroidisseur.html.twig', [
-            'controller_name' => 'RefroidisseurController',
             'form_Refroidisseur'=> $form_Refroidisseur->createView()
 
         ]);
@@ -57,7 +55,6 @@ class RefroidisseurController extends AbstractController
     public function ModifierVentiradAIO(): Response
     {
         return $this->render('refroidisseur/modifierrefroidisseur.html.html.twig', [
-            'controller_name' => 'RefroidisseurController',
         ]);
     }
 }

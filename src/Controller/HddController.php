@@ -22,7 +22,6 @@ class HddController extends AbstractController
         $showhdd = $hddrepo->findBy([],['id' => 'DESC']);
 
         return $this->render('hdd/index.html.twig', [
-            'controller_name' => 'HddController',
             'showhdd'=>$showhdd
         ]);
     }
@@ -42,7 +41,6 @@ class HddController extends AbstractController
             ]);
         }
         return $this->render('hdd/ajouterhdd.html.twig', [
-            'controller_name' => 'HddController',
             'form_hdd' => $form_hdd->createView()
         ]);
     }
@@ -51,7 +49,6 @@ class HddController extends AbstractController
     public function ModifierHDD(): Response
     {
         return $this->render('hdd/modifierhdd.html.twig', [
-            'controller_name' => 'HddController',
         ]);
     }
 }

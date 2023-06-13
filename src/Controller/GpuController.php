@@ -20,7 +20,6 @@ class GpuController extends AbstractController
     {   $showgpu = $gpurepo->findBy([],['id' => 'DESC']);
 
         return $this->render('gpu/index.html.twig', [
-            'controller_name' => 'GPUController',
             'showgpu'=>$showgpu
 
         ]);
@@ -43,7 +42,6 @@ class GpuController extends AbstractController
         }
 
         return $this->render('gpu/ajoutergpu.html.twig', [
-            'controller_name' => 'GPUController',
             'form_gpu' => $form_gpu->createView()
         ]);
     }
@@ -52,7 +50,6 @@ class GpuController extends AbstractController
     public function ModifierGPU(): Response
     {
         return $this->render('gpu/modifiergpu.html.twig', [
-            'controller_name' => 'AlimController',
         ]);
     }
 }

@@ -41,7 +41,8 @@
                             <td class="text-nowrap">{{boitier.modele}}</td>
                             <td class="text-nowrap">{{boitier.formatboitier}}</td>
                             <td class="text-nowrap">{{boitier.formatalimentation}}</td>
-                            <td class="text-nowrap">{#<a href="{{ path('alim.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
+                            <td class="text-nowrap"><a href="{{ path('boitier.edit', {id: boitier.id}) }}">Modifier</a>
+                            <button onclick=#>Supprimer</button>
                             <span class="badge text-bg-danger"></span>
                         </td>
                 {% endfor %}

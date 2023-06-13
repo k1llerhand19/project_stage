@@ -39,7 +39,7 @@
                             <td class="text-nowrap">{{alim.marque}}</td>
                             <td class="text-nowrap">{{alim.modele}}</td>
                             <td class="text-nowrap">{{alim.puissance}} W</td>
-                            <td class="text-nowrap"><a href="{{ path('alim.edit { 'id': id }')}}">Modifier</a> 
+                            <td class="text-nowrap"><a href="{{ path('alim.edit', {id: alim.id}) }}">Modifier</a> 
                             <button onclick=#>Supprimer</button>
                             <span class="badge text-bg-danger"></span></td>
                         </tr>

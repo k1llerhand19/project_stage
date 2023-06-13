@@ -21,7 +21,6 @@ class ProcesseurController extends AbstractController
         $showcpu = $cpurepo->findBy([],['id' => 'DESC']);
 
         return $this->render('processeur/index.html.twig', [
-            'controller_name' => 'ProcesseurController',
             'showcpu'=>$showcpu
         ]);
     }
@@ -42,7 +41,6 @@ class ProcesseurController extends AbstractController
             ]);
         }
         return $this->render('processeur/ajouterprocesseur.html.twig', [
-            'controller_name' => 'ProcesseurController',
             'form_processeur' => $form_processeur->createView()
         ]);
     }
@@ -54,7 +52,6 @@ class ProcesseurController extends AbstractController
     {
        
         return $this->render('Processeur/modifierprocesseur.html.twig', [
-            'controller_name' => 'ProcesseurController',
         ]);
     }
 

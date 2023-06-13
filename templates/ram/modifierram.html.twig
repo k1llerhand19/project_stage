@@ -3,7 +3,7 @@
 {% block title %}RAM{% endblock %}
 
 {% block body %}
-<div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-4"></div>
             <div class="col-4">
@@ -14,61 +14,35 @@
 
     <div class="container">
         <div class="row">
-        <div class="col-4" id="colonne"></div>
-             <div class="col-4" id="colonne-3">
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
                 <br><br>
                 <h2>Modifier :</h2>
             </div>
         </div>
-    </div>
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-4" id="colonne"></div>
-                    <div class="col-4" id="colonne-3">
-                        <FORM action="valid.php" METHOD="GET">
-                            <label for="nom">nom  :</label>
-                                <br>
-                            <input type="String" id="nom" name="nom1">
-                                <br>
-                                <br>
-                            <label for="Modele">Modele :</label>
-                                <br>
-                            <input type="String" id="modele" name="modele1">
-                                <br>
-                                <br>
-                            <label for="Marque">Marque :</label>
-                                <br>
-                            <input type="String" id="Marque" name="Marque1">
-                                <br>
-                                <br>
-                            <label for="Type_memoire">Type de mémoire :</label>
-                                <br>
-                            <input type="String" id="Tm" name="Tm1">
-                                <br>
-                                <br>
-                            <label for="Frequence_memoire">Fréquence mémoire :</label>
-                                <br>
-                            <input type="number" id="Fm" name="Fm1">
-                                <br>
-                                <br>
-                            <label for="Capacite/barrette">Capacité par barrette :</label>
-                                <br>
-                            <input type="number" id="Fm" name="Fm1">
-                                <br>
-                                <br>
-                            <label for="Stock">Stock :</label>
-                                <br>
-                            <input type="number" id="stock" name="stock1">
-                                <br>
-                                <br>
-                            <input type="submit" value="Modifier" name="modifier">
-                                <br>
-                                <br>
-                        </form>
-                </div>
+
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+                {{form_start(formram)}}
+
+                {{form_row(formram.nom, {'attr' : {'placeholder' : "Désignation de la RAM"}})}}
+                {{form_row(formram.marque, {'attr' : {'placeholder' : "Marque de la RAM"}})}}
+                {{form_row(formram.modele, {'attr' : {'placeholder' : "Modele de la RAM"}})}}
+                {{form_row(formram.typememoire, {'attr' : {'placeholder' : "Type de mémoire"}})}}
+                {{form_row(formram.frequencememoire, {'attr' : {'placeholder' : "Frequence mémoire de la RAM"}})}}
+                {{form_row(formram.capaciteparbarrette, {'attr' : {'placeholder' : "Capacite par barrette"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        Modifier
+                </button>
+
+                {{form_end(formram)}}
             </div>
+
+            
         </div>
-    </div>    
-</div>
-{% endblock %}        
+      </div> 
+
+{% endblock %}
+

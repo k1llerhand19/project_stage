@@ -42,13 +42,14 @@
                             <td class="text-nowrap">{{cm.nom}}</td>
                             <td class="text-nowrap">{{cm.marque}}</td>
                             <td class="text-nowrap">{{cm.modele}}</td>
-                            <td class="text-nowrap">{{cm.supportcpu}} W</td>
+                            <td class="text-nowrap">{{cm.supportcpu}}</td>
                             <td class="text-nowrap">{{cm.nbrcpusupporte}}</td>
                             <td class="text-nowrap">{{cm.chipset}}</td>
                             <td class="text-nowrap">{{cm.typememoire}}</td>
                             <td class="text-nowrap">{{cm.capacitemaximalramparslot}} </td>
                             <td class="text-nowrap">{{cm.capacitemaximalram}} </td>
-                            <td class="text-nowrap">{#<a href="{{ path('alim.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
+                            <td class="text-nowrap"><a href="{{ path('cartemere.edit', {id: cm.id}) }}">Modifier</a>
+                            <button onclick=#>Supprimer</button>
                             <span class="badge text-bg-danger"></span></td>
                         </tr>
                         

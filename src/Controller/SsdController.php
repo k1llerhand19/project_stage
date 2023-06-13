@@ -20,7 +20,6 @@ class SsdController extends AbstractController
     {
         $showssd = $ssdrepo->findBy([],['id' => 'DESC']);
         return $this->render('ssd/index.html.twig', [
-            'controller_name' => 'SsdController',
             'showssd'=>$showssd
         ]);
     }
@@ -39,7 +38,6 @@ class SsdController extends AbstractController
             return $this->redirectToRoute('ssd.show',['id'=>$ssd->getId()]);
         }
         return $this->render('ssd/ajouterssd.html.twig', [
-            'controller_name' => 'SsdController',
             'form_ssd'=> $form_ssd->createView()
         ]);
     }
@@ -48,7 +46,6 @@ class SsdController extends AbstractController
     public function ModifierSSD(): Response
     {
         return $this->render('ssd/modifierssd.html.twig', [
-            'controller_name' => 'SsdController',
         ]);
     }
 }
