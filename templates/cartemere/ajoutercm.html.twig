@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carte mére{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h1>Carte mére</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
+                <br><br>
+                <h2>Creer :</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+
+                {{form_start(form_Cm)}}
+
+                {{form_row(form_Cm.nom, {'attr' : {'placeholder' : "Désignation de l'boitier"}})}}
+                {{form_row(form_Cm.marque, {'attr' : {'placeholder' : "Marque de l'boitier"}})}}
+                {{form_row(form_Cm.modele, {'attr' : {'placeholder' : "Modele de l'boitier"}})}}
+                {{form_row(form_Cm.supportcpu, {'attr' : {'placeholder' : "Support du processeur"}})}}
+                {{form_row(form_Cm.nbrcpusupporte, {'attr' : {'placeholder' : "Nombre de CPU supporté"}})}}
+                {{form_row(form_Cm.chipset, {'attr' : {'placeholder' : "Chipset"}})}}
+                {{form_row(form_Cm.typememoire, {'attr' : {'placeholder' : "Type de mémoire"}})}}
+                {{form_row(form_Cm.capacitemaximalramparslot, {'attr' : {'placeholder' : "Capacité maximal de RAM par slot"}})}}
+                {{form_row(form_Cm.capacitemaximalram, {'attr' : {'placeholder' : "Capacité maximal de RAM"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+                <br><br><br><br><br>
+
+                {{form_end(form_Cm)}}
+            </div>
+        </div>
+      </div> 
+
+{% endblock %}

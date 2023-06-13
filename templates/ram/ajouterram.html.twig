@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RAM{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h1>RAM</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
+                <br><br>
+                <h2>Creer :</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+                {{form_start(form_ram)}}
+
+                {{form_row(form_ram.nom, {'attr' : {'placeholder' : "Désignation de la RAM"}})}}
+                {{form_row(form_ram.marque, {'attr' : {'placeholder' : "Marque de la RAM"}})}}
+                {{form_row(form_ram.modele, {'attr' : {'placeholder' : "Modele de la RAM"}})}}
+                {{form_row(form_ram.typememoire, {'attr' : {'placeholder' : "Type de mémoire"}})}}
+                {{form_row(form_ram.frequencememoire, {'attr' : {'placeholder' : "Frequence mémoire de la RAM"}})}}
+                {{form_row(form_ram.capaciteparbarrette, {'attr' : {'placeholder' : "Capacite par barrette"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(form_ram)}}
+            </div>
+
+            
+        </div>
+      </div> 
+
+{% endblock %}
+

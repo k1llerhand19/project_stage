@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RAM{% endblock %}
+
+{% block body %}
+<div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h1>RAM</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <div class="col-4" id="colonne"></div>
+             <div class="col-4" id="colonne-3">
+                <br><br>
+                <h2>Modifier :</h2>
+            </div>
+        </div>
+    </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-4" id="colonne"></div>
+                    <div class="col-4" id="colonne-3">
+                        <FORM action="valid.php" METHOD="GET">
+                            <label for="nom">nom  :</label>
+                                <br>
+                            <input type="String" id="nom" name="nom1">
+                                <br>
+                                <br>
+                            <label for="Modele">Modele :</label>
+                                <br>
+                            <input type="String" id="modele" name="modele1">
+                                <br>
+                                <br>
+                            <label for="Marque">Marque :</label>
+                                <br>
+                            <input type="String" id="Marque" name="Marque1">
+                                <br>
+                                <br>
+                            <label for="Type_memoire">Type de mémoire :</label>
+                                <br>
+                            <input type="String" id="Tm" name="Tm1">
+                                <br>
+                                <br>
+                            <label for="Frequence_memoire">Fréquence mémoire :</label>
+                                <br>
+                            <input type="number" id="Fm" name="Fm1">
+                                <br>
+                                <br>
+                            <label for="Capacite/barrette">Capacité par barrette :</label>
+                                <br>
+                            <input type="number" id="Fm" name="Fm1">
+                                <br>
+                                <br>
+                            <label for="Stock">Stock :</label>
+                                <br>
+                            <input type="number" id="stock" name="stock1">
+                                <br>
+                                <br>
+                            <input type="submit" value="Modifier" name="modifier">
+                                <br>
+                                <br>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+{% endblock %}        

@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Processeur{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-5">
+                <h1>Processeur :</h1><br>
+            </div>
+        </div>
+    </div> 
+ 
+    <div class="container">
+        <div class="row">
+            <div class="col-4" id="colonne"></div>
+            <div class="col p-0" id="colonne-3">
+                <FORM action="" METHOD="GET">   
+                    <label for="nom">nom  :</label>
+                        <br>
+                    <input type="String" id="nom" name="nom1">
+                        <br>
+                        <br>
+                    <label for="Modele">Modele :</label>
+                        <br>
+                    <input type="String" id="modele" name="modele1">
+                        <br>
+                        <br>
+                    <label for="Marque">Marque :</label>
+                        <br>
+                    <input type="String" id="Marque" name="Marque1">
+                        <br>
+                        <br>	   
+                    <label for="Format_Boitier">Support de processeur :</label>
+                        <br>
+                    <input type="String" id="Format_Boitier" name="Format_Boitier1">
+                        <br>
+                        <br>
+                    <label for="Freq_CPU">Fréquence du CPU :</label>
+                        <br>
+                    <input type="number" id="Freq_CPU" name="Freq_CPU1">	
+                        <br>
+                        <br>
+                    <label for="Nbr_Core">Nombre de Core :</label>
+                        <br>
+                    <input type="number" id="Nbr_Core" name="Nbr_Core1">	
+                        <br>
+                        <br>
+                    <label for="Nbr_threads">Nombre de threads :</label>
+                        <br>
+                    <input type="number" id="Nbr_threads" name="Nbr_threads1">	
+                        <br>
+                        <br>		   
+                    <label for="Stock">Stock :</label>
+                        <br>
+                    <input type="number" id="stock" name="stock1">	
+                        <br>
+                        <br>
+                    <input type="submit" value="Modifier" name="modifier">
+                        <br>
+                        <br>
+                </form>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}VentiRAD et AIO{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h1>VentiRAD et AIO </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
+                <br><br>
+                <h2>Creer :</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+                {{form_start(form_Refroidisseur)}}
+                
+                {{form_row(form_Refroidisseur.nom, {'attr' : {'placeholder' : "Désignation du ventiRad / AIO"}})}}
+                {{form_row(form_Refroidisseur.marque, {'attr' : {'placeholder' : "Marque du ventiRad / AIO"}})}}
+                {{form_row(form_Refroidisseur.modele, {'attr' : {'placeholder' : "Modele du ventiRad / AIO"}})}}
+                {{form_row(form_Refroidisseur.supportcpu, {'attr' : {'placeholder' : " Support du processeur du ventiRad / AIO"}})}}
+                {{form_row(form_Refroidisseur.vitesserotationminimum, {'attr' : {'placeholder' : "Vitesse de rotation minimum du ventiRad / AIO"}})}}
+                {{form_row(form_Refroidisseur.vitesserotationmaximum, {'attr' : {'placeholder' : "Vitesse de rotation maximum du ventiRad / AIO"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(form_Refroidisseur)}}
+                <br><br><br>
+            </div>
+
+            
+        </div>
+      </div> 
+
+{% endblock %}
+

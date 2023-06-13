@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Processeur{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-5">
+                <h1>Processeur</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
+                <br><br>
+                <h2>Creer :</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+                {{form_start(form_processeur)}}
+
+                {{form_row(form_processeur.nom, {'attr' : {'placeholder' : "Désignation du processeur"}})}}
+                {{form_row(form_processeur.marque, {'attr' : {'placeholder' : "Marque du processeur"}})}}
+                {{form_row(form_processeur.modele, {'attr' : {'placeholder' : "Modele du processeur"}})}}
+                {{form_row(form_processeur.supportcpu, {'attr' : {'placeholder' : "Support du processeur"}})}}
+                {{form_row(form_processeur.frequencecpu, {'attr' : {'placeholder' : "Frequence du CPU"}})}}
+                {{form_row(form_processeur.nbrthreads, {'attr' : {'placeholder' : "Nombre de threads"}})}}
+                {{form_row(form_processeur.nbrcore, {'attr' : {'placeholder' : "Nombre de core"}})}}                
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(form_processeur)}}
+            </div>
+        </div>
+    </div> 
+
+{% endblock %}

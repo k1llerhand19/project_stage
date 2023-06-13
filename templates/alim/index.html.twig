@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alimentation{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-5">
+                <h1>Alimentation :</h1>
+            </div>
+        </div>
+    </div> 
+ 
+ 
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="align-middle text-center" colspan="9">Alimentation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr class="align-middle text-center">
+                            <th class="text-nowrap">Nom</th>
+                            <th class="text-nowrap">Marque</th>
+                            <th class="text-nowrap">Modele</th>
+                            <th class="text-nowrap">Puissance</th>
+                            <th class="text-nowrap">Actions</th>
+                        </tr>
+                                    
+                        {{dump(showalim)}}
+
+                        {% for alim in showalim %}
+
+                        <tr class="align-middle text-center">
+                            <td class="text-nowrap">{{alim.nom}}</td>
+                            <td class="text-nowrap">{{alim.marque}}</td>
+                            <td class="text-nowrap">{{alim.modele}}</td>
+                            <td class="text-nowrap">{{alim.puissance}} W</td>
+                            <td class="text-nowrap">{#<a href="{{ path('alim.edit { 'id': id }')}}">Modifier</a> #}
+                            <button onclick=#>Supprimer</button>
+                            <span class="badge text-bg-danger"></span></td>
+                        </tr>
+                        
+                        {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <a href="{{ path('alim.add')}}">Ajoutez</a>
+
+{% endblock %}

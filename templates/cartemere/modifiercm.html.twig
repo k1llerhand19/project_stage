@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carte mére{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h1>Carte mére :</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
+                <br><br>
+                <h2>Modifier :</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+                <FORM action="" METHOD="GET">
+                    <label for="nom">nom  :</label>
+                        <br>
+                    <input type="String" id="nom" name="nom1">
+                        <br>
+                    <label for="Modele">Modele :</label>
+                        <br>
+                    <input type="String" id="modele" name="modele1">
+                        <br>
+                    <label for="Marque">Marque :</label>
+                        <br>
+                    <input type="String" id="Marque" name="Marque1">
+                        <br>	   
+                    <label for="Support_CPU">Support Processeur :</label>
+                        <br>
+                    <input type="String" id="Support_CPU" name="Support_CPU1">
+                        <br>
+                    <label for="Nbr_CPU_Supporte">Nombre de CPU supporté :</label>
+                        <br>
+                    <input type="number" id="Nbr_CPU_Supporte" name="Nbr_CPU_Supporte1">
+                        <br>
+                         <label for="Chipset">Chipset :</label>
+                        <br>
+                    <input type="String" id="Chipset" name="Chipset1">
+                        <br>	   
+                    <label for="Type_Memoire">Type de mémoire :</label>
+                        <br>
+                    <input type="String" id="Type_Memoire" name="Type_Memoire1">
+                        <br>
+                    <label for="Capa_Max_Ram/Slots">Capacité Maximale de RAM par slots :</label>
+                        <br>
+                    <input type="number" id="Capa_Max_Ram/Slots" name="Capa_Max_Ram/Slots1">
+                        <br>
+                    <label for="Capa_Max_Ram">Capacité Maximale de RAM :</label>
+                        <br>
+                    <input type="number" id="Capa_Max_Ram" name="Capa_Max_Ram1">
+                        <br>	   
+                    <label for="Stock">Stock :</label>
+                        <br>
+                    <input type="number" id="stock" name="stock1">	
+                        <br>
+                        <br>
+                    <input type="submit" value="Modifier" name="modifier">
+                </form>
+            </div>
+        </div>
+      </div> 
+
+{% endblock %}

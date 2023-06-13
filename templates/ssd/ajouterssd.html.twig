@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SSD{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h1>SSD</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
+                <br><br>
+                <h2>Creer :</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+                 {{form_start(form_ssd)}}
+
+                {{form_row(form_ssd.nom, {'attr' : {'placeholder' : "Désignation du SSD"}})}}
+                {{form_row(form_ssd.marque, {'attr' : {'placeholder' : "Marque du SSD"}})}}
+                {{form_row(form_ssd.modele, {'attr' : {'placeholder' : "Modele du SSD"}})}}
+                {{form_row(form_ssd.capacite, {'attr' : {'placeholder' : "Capacité du SSD"}})}}
+                {{form_row(form_ssd.vitesselecture, {'attr' : {'placeholder' : "Vitesse_lecture du SSD"}})}}
+                {{form_row(form_ssd.vitesseecriture, {'attr' : {'placeholder' : "Vitesse_ecriture du SSD"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(form_ssd)}}
+            </div>
+        </div>
+      </div> 
+
+{% endblock %}
+

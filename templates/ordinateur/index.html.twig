@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ordinateur{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-5">
+                <h1>Ordinateur</h1>
+            </div>
+        </div>
+    </div> 
+ 
+ 
+ <div class="col-lg-12">
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="align-middle text-center" colspan="13">Ordinateur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="align-middle text-center">
+                        <th class="text-nowrap">Nom</th>
+                        <th class="text-nowrap">Modele</th>
+                        <th class="text-nowrap">Marque</th>
+                        <th class="text-nowrap">Carte mére</th>
+                        <th class="text-nowrap">Processeur</th>
+                        <th class="text-nowrap">Alimentation</th>
+                        <th class="text-nowrap">Disque dur</th>
+                        <th class="text-nowrap">SSD</th>
+                        <th class="text-nowrap">VentiRAD et AIO</th>
+                        <th class="text-nowrap">RAM</th>
+                        <th class="text-nowrap">Carte graphique</th>
+                        <th class="text-nowrap">Boitier</th>
+                        <th class="text-nowrap">Actions</th>
+                    </tr>
+
+                    {% for ordi in showordi %}
+                        <tr class="align-middle text-center">
+                            <td class="text-nowrap">{{ordi.nom}}</td>
+                            <td class="text-nowrap">{{ordi.marque}}</td>
+                            <td class="text-nowrap">{{ordi.modele}}</td>
+                            <td class="text-nowrap">{{ordi.cartemere_nom}}</td>
+                            <td class="text-nowrap">{{ordi.cpu_nom}}</td>
+                            <td class="text-nowrap">{{ordi.alim_nom}}</td>
+                            <td class="text-nowrap">{{ordi.hdd_nom}}</td>
+                            <td class="text-nowrap">{{ordi.ssd_nom}}</td>
+                            <td class="text-nowrap">{{ordi.refroidisseur_nom}}</td>
+                            <td class="text-nowrap">{{ordi.ram_nom}}</td>
+                            <td class="text-nowrap">{{ordi.gpu_nom}}</td>
+                            <td class="text-nowrap">{{ordi.boitier_nom}}</td>
+                            <td class="text-nowrap">{#<a href="{{ path('alim.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
+                            <span class="badge text-bg-danger"></span></td>
+                        </tr>
+                        
+                    {% endfor %}
+            </table>
+        </div>
+    </div
+</div>
+    
+    <a href="{{ path('ordinateur.add')}}">Ajoutez</a>
+    {#<a href="{{ path('ordinateur.edit, { 'id': id }')}}">Ajoutez</a>#}
+
+
+    </script>
+{% endblock %}

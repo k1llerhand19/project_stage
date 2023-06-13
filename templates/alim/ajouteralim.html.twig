@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alimentation{% endblock %}
+
+{% form_theme form_alim 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h1>Alimentation</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
+                <br><br>
+                <h2>Creer :</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+
+                {{form_start(form_alim)}}
+
+                {{form_row(form_alim.nom, {'attr' : {'placeholder' : "Désignation de l'alimentation"}})}}
+                {{form_row(form_alim.marque, {'attr' : {'placeholder' : "Marque de l'alimentation"}})}}
+                {{form_row(form_alim.modele, {'attr' : {'placeholder' : "Modele de l'alimentation"}})}}
+                {{form_row(form_alim.puissance, {'attr' : {'placeholder' : "Puissance de l'alimentation"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(form_alim)}}
+                
+               
+
+            
+            </div>
+        </div>
+      </div> 
+
+{% endblock %}
+

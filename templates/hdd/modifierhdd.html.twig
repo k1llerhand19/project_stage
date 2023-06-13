@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HDD{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-5">
+                <h1>HDD</h1><br>
+            </div>
+        </div>
+    </div> 
+ 
+    <div class="container">
+        <div class="row">
+            <div class="col-4" id="colonne"></div>
+            <div class="col p-0" id="colonne-3">
+                <FORM action="" METHOD="GET">   
+                     <label for="nom">nom  :</label>
+                        <br>
+                    <input type="String" id="nom" name="nom1">
+                        <br>
+                        <br>
+                    <label for="Modele">Modele :</label>
+                        <br>
+                    <input type="String" id="modele" name="modele1">
+                        <br>
+                        <br>
+                    <label for="Marque">Marque :</label>
+                        <br>
+                    <input type="String" id="Marque" name="Marque1">
+                        <br>
+                        <br>	   
+                    <label for="Capacite_Stockage">Capacité :</label>
+                        <br>
+                    <input type="number" id="Capa_HDD" name="Capa_HDD1">
+                        <br>
+                        <br>
+                    <label for="Vitesse_Rota">Vitesse de rotation :</label>
+                        <br>
+                    <input type="number" id="Vitesse_Rota" name="Vitesse_Rota1">
+                        <br>
+                        <br>	   
+                    <label for="Stock">Stock :</label>
+                        <br>
+                    <input type="number" id="stock" name="stock1">
+                        <br>
+                        <br>
+                    <input type="submit" value="Modifier" name="modifier">
+                </form>
+{% endblock %}
+

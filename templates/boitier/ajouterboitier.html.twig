@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boitier{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h1>Boitier</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
+                <br><br>
+                <h2>Creer :</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+
+                {{form_start(form_boitier)}}
+                {{form_row(form_boitier.nom, {'attr' : {'placeholder' : "Désignation de l'boitier"}})}}
+                {{form_row(form_boitier.marque, {'attr' : {'placeholder' : "Marque de l'boitier"}})}}
+                {{form_row(form_boitier.modele, {'attr' : {'placeholder' : "Modele de l'boitier"}})}}
+                {{form_row(form_boitier.formatboitier, {'attr' : {'placeholder' : "Format du boitier"}})}}
+                {{form_row(form_boitier.formatalimentation, {'attr' : {'placeholder' : "Format de l'alimentation"}})}}
+                
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(form_boitier)}}
+                
+            </div>
+        </div>
+      </div> 
+
+{% endblock %}

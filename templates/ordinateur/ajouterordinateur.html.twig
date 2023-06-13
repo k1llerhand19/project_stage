@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ordinateur{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-5">
+                <h1>Ordinateur</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
+                <br><br>
+                <h2>Creer :</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+               {{form_start(form_ordinateur)}}
+
+                {{form_row(form_ordinateur.nom, {'attr' : {'placeholder' : "Désignation du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.marque, {'attr' : {'placeholder' : "Marque du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.modele, {'attr' : {'placeholder' : "Modele du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.alim, {'attr' : {'placeholder' : "Désignation du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.boitier, {'attr' : {'placeholder' : "Modele du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.cartemere, {'attr' : {'placeholder' : "Marque du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.gpu, {'attr' : {'placeholder' : " Support du processeur du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.hdd, {'attr' : {'placeholder' : "Vitesse de rotation minimum du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.cpu, {'attr' : {'placeholder' : "Vitesse de rotation maximum du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.ram, {'attr' : {'placeholder' : "Stock en réserve  du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.refroidisseur, {'attr' : {'placeholder' : "Vitesse de rotation maximum du ventiRad / AIO"}})}}
+                {{form_row(form_ordinateur.ssd, {'attr' : {'placeholder' : "Stock en réserve  du ventiRad / AIO"}})}}
+
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+                <br><br><br><br>
+
+                {{form_end(form_ordinateur)}}
+            </div>
+        </div>
+    </div> 
+
+{% endblock %}    
+                 

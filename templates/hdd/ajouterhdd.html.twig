@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HDD{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h1>HDD</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
+                <br><br>
+                <h2>Creer :</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+                {{form_start(form_hdd)}}
+
+                {{form_row(form_hdd.nom, {'attr' : {'placeholder' : "Désignation du disque dur"}})}}
+                {{form_row(form_hdd.marque, {'attr' : {'placeholder' : "Marque du disque dur"}})}}
+                {{form_row(form_hdd.modele, {'attr' : {'placeholder' : "Modele du disque dur"}})}}
+                {{form_row(form_hdd.capacite, {'attr' : {'placeholder' : "Capacite"}})}}
+                {{form_row(form_hdd.vitesserotation, {'attr' : {'placeholder' : "Vitesse de rotation"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(form_hdd)}}
+            </div>
+        </div>
+      </div> 
+
+{% endblock %}

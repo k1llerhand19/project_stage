@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}VentiRAD et AIO{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-5">
+                <h1>VentiRAD et AIO </h1>
+            </div>
+        </div>
+    </div> 
+ 
+ 
+ <div class="col-lg-12">
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="align-middle text-center" colspan="9">VentiRAD et AIO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="align-middle text-center">
+                        <th class="text-nowrap">Nom</th>
+                        <th class="text-nowrap">Marque</th>
+                        <th class="text-nowrap">Modele</th>
+                        <th class="text-nowrap">Support Processeur</th>
+                        <th class="text-nowrap">Vitesse de rotation minimum</th>
+                        <th class="text-nowrap">Vitesse de rotation Maximum</th>
+                        <th class="text-nowrap">Actions</th>
+                    </tr>
+
+                    {% for refroidisseur in showrefroidisseur %}
+                        <tr class="align-middle text-center">
+                            <td class="text-nowrap">{{refroidisseur.nom}}</td>
+                            <td class="text-nowrap">{{refroidisseur.marque}}</td>
+                            <td class="text-nowrap">{{refroidisseur.modele}}</td>
+                            <td class="text-nowrap">{{refroidisseur.supportcpu}}</td>
+                            <td class="text-nowrap">{{refroidisseur.vitesserotationminimum}} RPM</td>
+                            <td class="text-nowrap">{{refroidisseur.vitesserotationmaximum}} RPM</td>
+                            <td class="text-nowrap">{#<a href="{{ path('alim.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
+                            <span class="badge text-bg-danger"></span></td>
+                        </tr>
+                        
+                    {% endfor %}
+            </table>
+        </div>
+    </div
+</div>
+    
+    <a href="{{ path('ventiradaio.add')}}">Ajoutez</a>
+{% endblock %}

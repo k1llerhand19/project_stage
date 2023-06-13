@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carte mére{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-5">
+                <h1>Carte mére </h1>
+            </div>
+        </div>
+    </div> 
+ 
+ 
+ <div class="col-lg-12">
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="align-middle text-center" colspan="10">Carte mére</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="align-middle text-center">
+                        <th class="text-nowrap">Nom</th>
+                        <th class="text-nowrap">Marque</th>
+                        <th class="text-nowrap">Modele</th>
+                        <th class="text-nowrap">Support Processeur</th>
+                        <th class="text-nowrap">Nombre de CPU supporté</th>
+                        <th class="text-nowrap">Chipset</th>
+                        <th class="text-nowrap">Type de mémoire</th>
+                        <th class="text-nowrap">Capacité Maximale de RAM par slots</th>
+                        <th class="text-nowrap">Capacité Maximale de RAM</th>
+                        <th class="text-nowrap">Actions</th>
+                    </tr>
+
+                    {% for cm in showcm %}
+
+                        <tr class="align-middle text-center">
+                            <td class="text-nowrap">{{cm.nom}}</td>
+                            <td class="text-nowrap">{{cm.marque}}</td>
+                            <td class="text-nowrap">{{cm.modele}}</td>
+                            <td class="text-nowrap">{{cm.supportcpu}} W</td>
+                            <td class="text-nowrap">{{cm.nbrcpusupporte}}</td>
+                            <td class="text-nowrap">{{cm.chipset}}</td>
+                            <td class="text-nowrap">{{cm.typememoire}}</td>
+                            <td class="text-nowrap">{{cm.capacitemaximalramparslot}} </td>
+                            <td class="text-nowrap">{{cm.capacitemaximalram}} </td>
+                            <td class="text-nowrap">{#<a href="{{ path('alim.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
+                            <span class="badge text-bg-danger"></span></td>
+                        </tr>
+                        
+                    {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+    
+    <a href="{{ path('cartemere.add')}}">Ajoutez</a>
+
+{% endblock %}
