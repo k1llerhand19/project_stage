@@ -6,48 +6,39 @@
     <div class="container">
         <div class="row">
             <div class="col-4"></div>
-            <div class="col-5">
-                <h1>HDD</h1><br>
+            <div class="col-4">
+                <h1>HDD</h1>
             </div>
         </div>
-    </div> 
- 
+    </div>
+
     <div class="container">
         <div class="row">
-            <div class="col-4" id="colonne"></div>
-            <div class="col p-0" id="colonne-3">
-                <FORM action="" METHOD="GET">   
-                     <label for="nom">nom  :</label>
-                        <br>
-                    <input type="String" id="nom" name="nom1">
-                        <br>
-                        <br>
-                    <label for="Modele">Modele :</label>
-                        <br>
-                    <input type="String" id="modele" name="modele1">
-                        <br>
-                        <br>
-                    <label for="Marque">Marque :</label>
-                        <br>
-                    <input type="String" id="Marque" name="Marque1">
-                        <br>
-                        <br>	   
-                    <label for="Capacite_Stockage">Capacité :</label>
-                        <br>
-                    <input type="number" id="Capa_HDD" name="Capa_HDD1">
-                        <br>
-                        <br>
-                    <label for="Vitesse_Rota">Vitesse de rotation :</label>
-                        <br>
-                    <input type="number" id="Vitesse_Rota" name="Vitesse_Rota1">
-                        <br>
-                        <br>	   
-                    <label for="Stock">Stock :</label>
-                        <br>
-                    <input type="number" id="stock" name="stock1">
-                        <br>
-                        <br>
-                    <input type="submit" value="Modifier" name="modifier">
-                </form>
-{% endblock %}
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
+                <br><br>
+                <h2>Modifier :</h2>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+                {{form_start(formhdd)}}
+
+                {{form_row(formhdd.nom, {'attr' : {'placeholder' : "Désignation du disque dur"}})}}
+                {{form_row(formhdd.marque, {'attr' : {'placeholder' : "Marque du disque dur"}})}}
+                {{form_row(formhdd.modele, {'attr' : {'placeholder' : "Modele du disque dur"}})}}
+                {{form_row(formhdd.capacite, {'attr' : {'placeholder' : "Capacite"}})}}
+                {{form_row(formhdd.vitesserotation, {'attr' : {'placeholder' : "Vitesse de rotation"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(formhdd)}}
+            </div>
+        </div>
+      </div> 
+
+{% endblock %}

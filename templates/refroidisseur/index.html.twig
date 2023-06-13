@@ -41,7 +41,8 @@
                             <td class="text-nowrap">{{refroidisseur.supportcpu}}</td>
                             <td class="text-nowrap">{{refroidisseur.vitesserotationminimum}} RPM</td>
                             <td class="text-nowrap">{{refroidisseur.vitesserotationmaximum}} RPM</td>
-                            <td class="text-nowrap">{#<a href="{{ path('alim.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
+                            <td class="text-nowrap"><a href="{{ path('ventiradaio.edit', {id: refroidisseur.id}) }}">Modifier</a>
+                            <button onclick=#>Supprimer</button>
                             <span class="badge text-bg-danger"></span></td>
                         </tr>
                         

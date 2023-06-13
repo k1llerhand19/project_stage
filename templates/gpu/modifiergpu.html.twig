@@ -1,58 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Carte graphique{% endblock %}
+{% block title %}Carte Graphique{% endblock %}
 
 {% block body %}
     <div class="container">
         <div class="row">
             <div class="col-4"></div>
-            <div class="col-5">
-                <h1>Carte graphique</h1><br>
+            <div class="col-4">
+                <h1>Carte Graphique</h1>
             </div>
         </div>
-    </div> 
- 
+    </div>
+
     <div class="container">
         <div class="row">
-            <div class="col-4" id="colonne"></div>
-            <div class="col p-0" id="colonne-3">
-                <FORM action="" METHOD="GET">   
-                     <label for="nom">nom  :</label>
-                        <br>
-                    <input type="String" id="nom" name="nom1">
-                        <br>
-                        <br>
-                    <label for="Modele">Modele :</label>
-                        <br>
-                    <input type="String" id="modele" name="modele1">
-                        <br>
-                        <br>
-                    <label for="Marque">Marque :</label>
-                        <br>
-                    <input type="String" id="Marque" name="Marque1">
-                        <br>
-                        <br>	   
-                    <label for="Format_Boitier">Chipset graphique :</label>
-                        <br>
-                    <input type="String" id="Chipset_Graphique" name="Chipset_Graphique1">
-                        <br>
-                        <br>
-                    <label for="Format_Alim">Taille de mémoire	 :</label>
-                        <br>
-                    <input type="String" id="Taille_Memoire" name="Taille_Memoire1">
-                        <br>
-                        <br>
-                    <label for="Format_Alim">Type de mémoire :</label>
-                        <br>
-                    <input type="String" id="Type_Memoire" name="Type_Memoire1">
-                        <br>
-                        <br>	   
-                    <label for="Stock">Stock :</label>
-                        <br>
-                    <input type="number" id="stock" name="stock1">
-                        <br>
-                        <br>
-                    <input type="submit" value="Modifier" name="modifier">
-                </form>
-{% endblock %}
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
+                <br><br>
+                <h2>Modifier :</h2>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+                {{form_start(formgpu)}}
+
+                {{form_row(formgpu.nom, {'attr' : {'placeholder' : "Désignation de la carte graphique"}})}}
+                {{form_row(formgpu.marque, {'attr' : {'placeholder' : "Marque de la carte graphique"}})}}
+                {{form_row(formgpu.modele, {'attr' : {'placeholder' : "Modele de la carte graphique"}})}}
+                {{form_row(formgpu.chipsetgraphique, {'attr' : {'placeholder' : "Chipset graphique"}})}}
+                {{form_row(formgpu.taillememoire, {'attr' : {'placeholder' : "Taille de la mémoire"}})}}
+                {{form_row(formgpu.typememoire, {'attr' : {'placeholder' : "Type de mémoire"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(formgpu)}}
+            </div>
+        </div>
+      </div> 
+
+{% endblock %}

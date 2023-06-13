@@ -7,58 +7,40 @@
         <div class="row">
             <div class="col-4"></div>
             <div class="col-5">
-                <h1>Processeur :</h1><br>
+                <h1>Processeur</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
+                <br><br>
+                <h2>Creer :</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+                {{form_start(formcpu)}}
+
+                {{form_row(formcpu.nom, {'attr' : {'placeholder' : "Désignation du processeur"}})}}
+                {{form_row(formcpu.marque, {'attr' : {'placeholder' : "Marque du processeur"}})}}
+                {{form_row(formcpu.modele, {'attr' : {'placeholder' : "Modele du processeur"}})}}
+                {{form_row(formcpu.supportcpu, {'attr' : {'placeholder' : "Support du processeur"}})}}
+                {{form_row(formcpu.frequencecpu, {'attr' : {'placeholder' : "Frequence du CPU"}})}}
+                {{form_row(formcpu.nbrthreads, {'attr' : {'placeholder' : "Nombre de threads"}})}}
+                {{form_row(formcpu.nbrcore, {'attr' : {'placeholder' : "Nombre de core"}})}}                
+
+                <button  type="submit" class="btn btn-success">
+                        Enregistrer
+                </button>
+
+                {{form_end(formcpu)}}
             </div>
         </div>
     </div> 
- 
-    <div class="container">
-        <div class="row">
-            <div class="col-4" id="colonne"></div>
-            <div class="col p-0" id="colonne-3">
-                <FORM action="" METHOD="GET">   
-                    <label for="nom">nom  :</label>
-                        <br>
-                    <input type="String" id="nom" name="nom1">
-                        <br>
-                        <br>
-                    <label for="Modele">Modele :</label>
-                        <br>
-                    <input type="String" id="modele" name="modele1">
-                        <br>
-                        <br>
-                    <label for="Marque">Marque :</label>
-                        <br>
-                    <input type="String" id="Marque" name="Marque1">
-                        <br>
-                        <br>	   
-                    <label for="Format_Boitier">Support de processeur :</label>
-                        <br>
-                    <input type="String" id="Format_Boitier" name="Format_Boitier1">
-                        <br>
-                        <br>
-                    <label for="Freq_CPU">Fréquence du CPU :</label>
-                        <br>
-                    <input type="number" id="Freq_CPU" name="Freq_CPU1">	
-                        <br>
-                        <br>
-                    <label for="Nbr_Core">Nombre de Core :</label>
-                        <br>
-                    <input type="number" id="Nbr_Core" name="Nbr_Core1">	
-                        <br>
-                        <br>
-                    <label for="Nbr_threads">Nombre de threads :</label>
-                        <br>
-                    <input type="number" id="Nbr_threads" name="Nbr_threads1">	
-                        <br>
-                        <br>		   
-                    <label for="Stock">Stock :</label>
-                        <br>
-                    <input type="number" id="stock" name="stock1">	
-                        <br>
-                        <br>
-                    <input type="submit" value="Modifier" name="modifier">
-                        <br>
-                        <br>
-                </form>
+
 {% endblock %}

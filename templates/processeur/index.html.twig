@@ -44,7 +44,8 @@
                             <td class="text-nowrap">{{cpu.frequencecpu}}</td>
                             <td class="text-nowrap">{{cpu.nbrcore}}</td>
                             <td class="text-nowrap">{{cpu.nbrthreads}}</td>
-                            <td class="text-nowrap">{#<a href="{{ path('alim.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
+                            <td class="text-nowrap"><a href="{{ path('processeur.edit', {id: cpu.id}) }}">Modifier</a>
+                            <button onclick=#>Supprimer</button>
                             <span class="badge text-bg-danger"></span></td>
                         </tr>
                         

@@ -53,7 +53,8 @@
                             <td class="text-nowrap">{{ordi.ram_nom}}</td>
                             <td class="text-nowrap">{{ordi.gpu_nom}}</td>
                             <td class="text-nowrap">{{ordi.boitier_nom}}</td>
-                            <td class="text-nowrap">{#<a href="{{ path('alim.edit, { 'id': id }')}}">Modifier</a>#}<button onclick=#>Supprimer</button>
+                            <td class="text-nowrap"><a href="{{ path('ordinateur.edit', {id: ordi.id}) }}">Modifier</a>
+                            <button onclick=#>Supprimer</button>
                             <span class="badge text-bg-danger"></span></td>
                         </tr>
                         
