@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -51,13 +52,27 @@ class AlimController extends AbstractController
     }
 
     #[Route('alim/{id}', name: 'alim.edit')]
-    public function ModifierAlim($id): Response
-    {       
+    public function ModifierAlim(AlimentationRepository $alimrepo, Request $request, EntityManagerInterface $manager, $id): Response
+    {          
+        $alim = $alimrepo->find($id);
         
-        return $this->redirectToRoute('alim.show',['id'=> $alim->getId()
-        ]);
+        if (!$alim) {
+            throw $this->createNotFoundException('Données introuvables pour l\'ID '.$id);
+        }
+
+        $formalim = $this->createForm(AlimentationFormType::class, $alim);
+        $formalim->handleRequest($request);
+
+        if ($formalim->isSubmitted() && $formalim->isValid()) {
+            $manager->flush();
+
+            // Rediriger vers une page de confirmation ou une autre action
+            return $this->redirectToRoute('alim.show');
+        }
+
         return $this->render('alim/modifieralim.html.twig', [
-            'controller_name' => 'AlimController', ['id' => $id]
+            'controller_name' => 'AlimController', ['id' => $id],
+            'formalim' => $formalim->createView(),
         ]);
     }
 

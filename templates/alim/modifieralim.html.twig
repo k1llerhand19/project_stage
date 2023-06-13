@@ -2,46 +2,49 @@
 
 {% block title %}Alimentation{% endblock %}
 
+{% form_theme formalim 'bootstrap_4_layout.html.twig' %}
+
 {% block body %}
     <div class="container">
         <div class="row">
             <div class="col-4"></div>
-            <div class="col-5">
-                <h1>Alimentation :</h1><br>
+            <div class="col-4">
+                <h1>Alimentation</h1>
             </div>
         </div>
-    </div> 
- 
+    </div>
+
     <div class="container">
         <div class="row">
-            <div class="col-4" id="colonne"></div>
-            <div class="col p-0" id="colonne-3">
-                <FORM action="" METHOD="GET">   
-                     <label for="nom">nom  :</label>
-                        <br>
-                    <input type="String" id="nom" name="nom1">
-                        <br>
-                        <br>
-                    <label for="Modele">Modele :</label>
-                        <br>
-                    <input type="String" id="modele" name="modele1">
-                        <br>
-                        <br>
-                    <label for="Marque">Marque :</label>
-                        <br>
-                    <input type="String" id="Marque" name="Marque1">
-                        <br>
-                        <br>	   
-                    <label for="Puissance">Puissance :</label>
-                        <br>
-                    <input type="number" id="Puissance" name="Puissance1">
-                        <br>
-                        <br>	   
-                    <label for="Stock">Stock :</label>
-                        <br>
-                    <input type="number" id="stock" name="stock1">	
-                        <br>
-                        <br>
-                    <input type="submit" value="Modifier" name="modifier">
-                </form>
+        <div class="col-4" id="colonne-1"></div>
+            <div class="col 4" id="colonne-1">
+                <br><br>
+                <h2>Modifier :</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-4" id="colonne-1"></div>
+            <div class="col-4" id="colonne-1">
+
+                {{form_start(formalim)}}
+
+                {{form_row(formalim.nom, {'attr' : {'placeholder' : "Désignation de l'alimentation"}})}}
+                {{form_row(formalim.marque, {'attr' : {'placeholder' : "Marque de l'alimentation"}})}}
+                {{form_row(formalim.modele, {'attr' : {'placeholder' : "Modele de l'alimentation"}})}}
+                {{form_row(formalim.puissance, {'attr' : {'placeholder' : "Puissance de l'alimentation"}})}}
+
+                <button  type="submit" class="btn btn-success">
+                        modifier
+                </button>
+
+                {{form_end(formalim)}}
+                
+               
+
+            
+            </div>
+        </div>
+      </div> 
+
 {% endblock %}
