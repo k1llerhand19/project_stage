@@ -41,8 +41,17 @@
                             <td class="text-nowrap">{{ssd.capacite}} Go</td>
                             <td class="text-nowrap">{{ssd.vitesselecture}} Mo/s</td>
                             <td class="text-nowrap">{{ssd.vitesseecriture}} Mo/s</td>
-                            <td class="text-nowrap"><a href="{{ path('ssd.edit', {id: ssd.id}) }}">Modifier</a>
-                            <button onclick=#>Supprimer</button>
+                            <td class="text-nowrap">
+                                <a href="{{ path('ssd.edit', {id: ssd.id}) }}">Modifier</a>
+
+                                <form method="post" action="{{ path('ssd.delete', {id: ssd.id}) }}" style="display: inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer le ssd : \'{{ ssd.nom }}\' ?')">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ssd.id) }}">
+                                    <button class="btn btn-danger"> supprimer
+                                        <span class="bi bi-trash-fill"></span>
+                                    </button>
+                                </form>
+
                             <span class="badge text-bg-danger"></span></td>
                         </tr>
                         

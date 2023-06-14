@@ -49,7 +49,15 @@
                             <td class="text-nowrap">{{cm.capacitemaximalramparslot}} Go</td>
                             <td class="text-nowrap">{{cm.capacitemaximalram}} Go</td>
                             <td class="text-nowrap"><a href="{{ path('cartemere.edit', {id: cm.id}) }}">Modifier</a>
-                            <button onclick=#>Supprimer</button>
+
+                            <form method="post" action="{{ path('cartemere.delete', {id: cm.id}) }}" style="display: inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer l\'boitier : \'{{ cm.nom }}\' ?')">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ cm.id) }}">
+                                    <button class="btn btn-danger"> supprimer
+                                        <span class="bi bi-trash-fill"></span>
+                                    </button>
+                            </form>
+                           
                             <span class="badge text-bg-danger"></span></td>
                         </tr>
                         

@@ -39,8 +39,17 @@
                             <td class="text-nowrap">{{hdd.modele}}</td>
                             <td class="text-nowrap">{{hdd.capacite}} Go</td>
                             <td class="text-nowrap">{{hdd.vitesserotation}} RPM</td>
-                            <td class="text-nowrap"><a href="{{ path('hdd.edit', {id: hdd.id}) }}">Modifier</a>
-                            <button onclick=#>Supprimer</button>
+                            <td class="text-nowrap">
+                                <a href="{{ path('hdd.edit', {id: hdd.id}) }}">Modifier</a>
+
+                                <form method="post" action="{{ path('hdd.delete', {id: hdd.id}) }}" style="display: inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer le disque dur : \'{{ hdd.nom }}\' ?')">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ hdd.id) }}">
+                                    <button class="btn btn-danger"> supprimer
+                                        <span class="bi bi-trash-fill"></span>
+                                    </button>
+                                </form>
+
                             <span class="badge text-bg-danger"></span></td>
                         </tr>
                         

@@ -44,8 +44,17 @@
                             <td class="text-nowrap">{{cpu.frequencecpu}} GHz</td>
                             <td class="text-nowrap">{{cpu.nbrcore}}</td>
                             <td class="text-nowrap">{{cpu.nbrthreads}}</td>
-                            <td class="text-nowrap"><a href="{{ path('processeur.edit', {id: cpu.id}) }}">Modifier</a>
-                            <button onclick=#>Supprimer</button>
+                            <td class="text-nowrap">
+                                <a href="{{ path('processeur.edit', {id: cpu.id}) }}">Modifier</a>
+
+                                <form method="post" action="{{ path('processeur.delete', {id: cpu.id}) }}" style="display: inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer le processeur : \'{{ cpu.nom }}\' ?')">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ cpu.id) }}">
+                                    <button class="btn btn-danger"> supprimer
+                                        <span class="bi bi-trash-fill"></span>
+                                    </button>
+                                </form>
+
                             <span class="badge text-bg-danger"></span></td>
                         </tr>
                         

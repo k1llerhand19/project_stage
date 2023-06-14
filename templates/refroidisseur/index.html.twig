@@ -41,8 +41,17 @@
                             <td class="text-nowrap">{{refroidisseur.supportcpu}}</td>
                             <td class="text-nowrap">{{refroidisseur.vitesserotationminimum}} RPM</td>
                             <td class="text-nowrap">{{refroidisseur.vitesserotationmaximum}} RPM</td>
-                            <td class="text-nowrap"><a href="{{ path('ventiradaio.edit', {id: refroidisseur.id}) }}">Modifier</a>
-                            <button onclick=#>Supprimer</button>
+                            <td class="text-nowrap">
+                                <a href="{{ path('ventiradaio.edit', {id: refroidisseur.id}) }}">Modifier</a>
+                            
+                                <form method="post" action="{{ path('ventiradaio.delete', {id: refroidisseur.id}) }}" style="display: inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer le ventirad AIO : \'{{ refroidisseur.nom }}\' ?')">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ refroidisseur.id) }}">
+                                    <button class="btn btn-danger"> supprimer
+                                        <span class="bi bi-trash-fill"></span>
+                                    </button>
+                                </form>
+
                             <span class="badge text-bg-danger"></span></td>
                         </tr>
                         

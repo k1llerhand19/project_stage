@@ -42,8 +42,17 @@
                             <td class="text-nowrap">{{gpu.chipsetgraphique}} </td>
                             <td class="text-nowrap">{{gpu.taillememoire}} Go</td>
                             <td class="text-nowrap">{{gpu.typememoire}}</td>
-                            <td class="text-nowrap"><a href="{{ path('gpu.edit', {id: gpu.id}) }}">Modifier</a>
-                            <button onclick=#>Supprimer</button>
+                            <td class="text-nowrap">
+                                <a href="{{ path('gpu.edit', {id: gpu.id}) }}">Modifier</a>
+                            
+                                <form method="post" action="{{ path('gpu.delete', {id: gpu.id}) }}" style="display: inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer l\'alimentation : \'{{ gpu.nom }}\' ?')">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ gpu.id) }}">
+                                    <button class="btn btn-danger"> supprimer
+                                        <span class="bi bi-trash-fill"></span>
+                                    </button>
+                                </form>
+
                             <span class="badge text-bg-danger"></span></td>
                         </tr>
                         

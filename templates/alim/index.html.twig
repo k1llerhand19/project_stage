@@ -40,8 +40,16 @@
                             <td class="text-nowrap">{{alim.modele}}</td>
                             <td class="text-nowrap">{{alim.puissance}} W</td>
                             <td class="text-nowrap">
-                                <a href="{{ path('alim.edit', {id: alim.id}) }}">Modifier</a> 
-                                <a href="{{ path('alim.supp', {id: alim.id}) }}">Supprimer</a> 
+                                <a href="{{ path('alim.edit', {id: alim.id}) }}">Modifier</a>
+                                
+                                <form method="post" action="{{ path('alim.delete', {id: alim.id}) }}" style="display: inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer l\'alimentation : \'{{ alim.nom }}\' ?')">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ alim.id) }}">
+                                    <button class="btn btn-danger"> supprimer
+                                        <span class="bi bi-trash-fill"></span>
+                                    </button>
+                                </form>
+
                                 <span class="badge text-bg-danger"></span>
                             </td>
                         </tr>

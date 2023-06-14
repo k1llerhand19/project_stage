@@ -48,7 +48,7 @@ class AlimController extends AbstractController
             $manager->persist($alim);
             $manager->flush();
 
-            return $this->redirectToRoute('alim.show',['id'=> $alim->getId()
+            return $this->redirectToRoute('alim.show',[
             ]);
         }
 
@@ -62,19 +62,25 @@ class AlimController extends AbstractController
     //Supprimer
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    #[Route('alim/{id}/supprimer', name: 'alim.supp')]    
-    public function delete(Alimentation $alimentation, Request $request, EntityManagerInterface $manager) 
-    { 
-        $manager->remove($alimentation); 
-        $manager->flush(); 
-        $session=$request->getSession(); 
+    #[Route('alim/{id}', name: 'alim.delete', methods: ['DELETE'])]
+    public function delete(Alimentation $alimentation, EntityManagerInterface $entityManager, Request $request): Response
+    {
+        if($this->isCsrfTokenValid('delete'.$alimentation->getId(), $request->get('_token')))
+        {
+            $entityManager->remove($alimentation);
+            $entityManager->flush();
+
+            //$this->addFlash('success', "Le serveur a bien été supprimé !");
+        }
+
         return $this->redirectToRoute('alim.show');
     }
+    
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Modifier
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    #[Route('alim/{id}', name: 'alim.edit')]
+    #[Route('alim/{id}', name: 'alim.edit', methods: ['GET', 'POST'])]
     public function ModifierAlim(Alimentation $alimentation, Request $request, EntityManagerInterface $manager): Response
     {          
         $formalim = $this->createForm(AlimentationFormType::class, $alimentation);

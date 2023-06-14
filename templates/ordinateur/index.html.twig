@@ -53,8 +53,17 @@
                             <td class="text-nowrap">{{ordi.ram_nom}}</td>
                             <td class="text-nowrap">{{ordi.gpu_nom}}</td>
                             <td class="text-nowrap">{{ordi.boitier_nom}}</td>
-                            <td class="text-nowrap"><a href="{{ path('ordinateur.edit', {id: ordi.id}) }}">Modifier</a>
-                            <button onclick=#>Supprimer</button>
+                            <td class="text-nowrap">
+                                <a href="{{ path('ordinateur.edit', {id: ordi.id}) }}">Modifier</a>
+
+                                <form method="post" action="{{ path('ordinateur.delete', {id: ordi.id}) }}" style="display: inline-block" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer l\'ordinateur : \'{{ ordi.nom }}\' ?')">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ordi.id) }}">
+                                    <button class="btn btn-danger"> supprimer
+                                        <span class="bi bi-trash-fill"></span>
+                                    </button>
+                                </form>
+
                             <span class="badge text-bg-danger"></span></td>
                         </tr>
                         
